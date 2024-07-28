@@ -1,0 +1,1 @@
+antlr4 -Dlanguage=Go -no-visitor -package parser ./parser/*.g4

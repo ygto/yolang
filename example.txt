@@ -1,0 +1,23 @@
+var $var1 int
+$var1 = 42
+
+var $var2 varchar
+$var2 = 'Hello World'
+
+#myFunction(varchar $param) varchar{
+   var $result varchar
+   var $result2 varchar
+   var $result3 varchar
+   var $result4 varchar
+    $result = $param
+    return $result
+}
+
+var $result varchar
+$result = #myFunction($var2)
+
+var $var3 varchar
+$var3=$result
+
+print($var1)
+print($var3)

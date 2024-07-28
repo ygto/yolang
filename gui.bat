@@ -1,0 +1,1 @@
+ antlr4-parse .\parser\Lang.g4 prog -gui
