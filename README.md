@@ -1,3 +1,4 @@
+```sh
 type User struct{
 int $age
 varchar(10) $name
@@ -12,3 +13,4 @@ Employee $theBest
 
 $theBest.user.age=27
 $theBest.user.name='yigit'
+```
