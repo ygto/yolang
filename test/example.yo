@@ -1,0 +1,14 @@
+type User struct{
+    int $age
+    varchar(10) $name
+}
+
+type Employee struct{
+    User $user
+    int $salary
+}
+
+Employee $eylem
+
+$eylem.user.age=27
+$eylem.user.name='yigit'

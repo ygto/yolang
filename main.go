@@ -1,27 +1,22 @@
 package main
 
 import (
-	"fmt"
+	"github.com/davecgh/go-spew/spew"
 	"os"
-	"yolang/parser"
-
-	"github.com/antlr4-go/antlr/v4"
+	"path/filepath"
 )
 
 func main() {
-
-	input, err := antlr.NewFileStream(os.Args[1])
+	_ = spew.Dump
+	path := os.Args[1]
+	f, err := filepath.Abs(path)
 	if err != nil {
-		fmt.Println("Failed to open file:", err)
-		return
+		panic(err)
 	}
-
-	lexer := parser.NewLangLexer(input)
-	stream := antlr.NewCommonTokenStream(lexer, 0)
-	p := parser.NewLangParser(stream)
-
-	listener := NewLangListener()
-	tree := p.Prog()
-
-	antlr.ParseTreeWalkerDefault.Walk(listener, tree)
+	currPath = filepath.Dir(path)
+	err = imports.importFile(f)
+	if err != nil {
+		panic(err)
+	}
+	spew.Dump(memory)
 }
